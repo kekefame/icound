@@ -1,0 +1,110 @@
+*{
+  margin:0;
+  padding:0;
+  list-style: none;
+}
+body,html{
+  height:100%;
+}
+@lm:320px;
+@titleheight:45px;
+@leftbg:#383836;
+@leftcolor:#fff;
+.container{
+  margin-left:@lm;
+  height:100%;
+  background: url("");
+  .left{
+    width:@lm;
+    height:100%;
+    float: left;
+    //background: red;
+    color:#000;
+    overflow-y:auto;
+    margin-left:-@lm;
+    .title{
+      height:@titleheight;
+      width:@lm;
+      border-bottom: 1px solid #1a1a1a;
+      background: @leftbg;
+      position: fixed;
+      top:0;
+      left:0;
+      .logo{
+        float: left;
+        height:100%;
+        line-height: @titleheight;
+        font-size:20px;
+        color:@leftcolor;
+        margin-left:10px;
+      }
+      .add{
+        float: right;
+        width:@titleheight;
+        height:100%;
+        cursor: pointer;
+        position: relative;
+        :hover{
+          opacity: 1;
+        }
+        span{
+          position: absolute;
+          width:@titleheight * 0.6;
+          height: 0;
+          border-bottom: 1px solid #fff;
+          opacity: 0.6;
+          &:nth-child(1){
+            margin: auto;
+            left:0;
+            right:0;
+            top:0;
+            bottom:0;
+          }
+          &:nth-child(2){
+            transform-origin: left center;
+            transform:rotate(90deg);
+            margin-top:@titleheight * .2;
+            left:50%;
+            margin-left:-2px;
+          }
+        }
+
+      }
+    }
+    .list{
+      width:100%;
+      height:auto;
+      padding-top:@titleheight;
+     li{
+       width:100%;
+       height:43px;
+       span{
+         float: left;
+         width:17px;
+         height:17px;
+         border-radius: 50%;
+          margin:13px;
+         background:blue;
+       }
+       h4{
+         margin-left:43px;
+         height:43px;
+         line-height: 43px;
+         color:#000;
+         font-size: 18px;
+         border-bottom: 1px solid #2a2a28;
+       }
+     }
+    }
+  }
+  .rigth{
+    width:100%;
+    height:100%;
+    float: right;
+    .search{
+      width:100%;
+      height:@titleheight;
+      border-bottom: 1px solid #ccc;
+    }
+  }
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="icloud">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/angular.min.js"></script>
+</head>
+<body>
+    <div class="container" ng-controller="todo">
+        <div class="left">
+            <div class="title">
+                <a href=""class="logo">Icloud提醒事项</a>
+                <div class="add" ng-click="add()">
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <ul class="list">
+                <li ng-repeat="v in todo" ng-click="select($index)" ng-style="{background:$index==index?'#2D2D2B':''}">
+                    <span ng-style="{background:v.color}"></span>
+                    <h4>{{v.title}}</h4>
+                </li>
+            </ul>
+        </div>
+        <div class="right">
+            <div class="search">
+                <span class="search-icon"></span>
+                <input type="text">
+            </div>
+            <div class="list">
+                <div class="title clearfix">
+                    <h3 ng-style="{color:todo[index].color}">{{todo[index].title}}</h3>
+                    <div ng-style="{color:todo[index].color}" class="btn">选项</div>
+                    div.color
+                </div>
+                <hr>
+                <div class="content">
+                    <div class="com" >
+                    	<span ng-click="flag=!flag" ng-class="{true:'span-out',false:'span-int'}[flag]"></span>
+                        <div class="now-list-title">
+                        	已完成:
+                        	<span class="list-num">{{doneNum}}</span>
+                        	项
+                        </div>
+                        <hr>
+                        <ul ng-show='flag'>
+                            <li ng-repeat="v in todo[index].list | filter:done" class="com-content-list">
+                            	<div class="content-date">{{v.date[$index].list | date:'yyyy-MM-dd hh:mm:ss'}}</div>
+                            	<div class="content-list-sh">
+                            		<span ng-style="{'background-color':todo[index].color,'border-color':todo[index].color}" ng-click="changeDone(v,false)"></span>
+                                	<p>{{v.content}}</p>
+                            	</div>
+                                
+                            </li>
+                        </ul>
+                    </div>
+                    <ul class="now">
+                        <ul>
+                            <li ng-repeat="v in todo[index].list | filter:doing" class="now-content-list">
+                                <span ng-style="{'border-color':todo[index].color}" ng-click="changeDone(v,true)"></span>
+                                <input type="text" ng-model="v.content">
+                            </li>
+                        </ul>
+                        <div ng-click="addlist()" class="now-list-btn">新项目...</div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/index.js"></script>
+</html>
